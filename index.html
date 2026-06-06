@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikas Bagde | Urban Planning & Mobility Researcher</title>
+    <style>
+        /* Base Variables & Teal Color Palette */
+        :root {
+            --color-1: #00746C;
+            --color-2: #00968B;
+            --color-3: #10B4A8;
+            --color-4: #31BDB3;
+            --color-5: #57CDC4;
+            --bg-page: #f4f7f6;
+            --bg-content: #ffffff;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Smooth scrolling added here */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Top Header Area */
+        header {
+            background-color: var(--bg-content);
+            padding: 2rem 0;
+            border-top: 5px solid var(--color-1);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        /* Image Placeholder Styling */
+        .logo-placeholder {
+            max-height: 100px;
+            width: auto;
+            border: 2px dashed var(--color-4); /* Dashed border to show it's a placeholder */
+            padding: 5px;
+        }
+
+        .profile-photo {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border: 2px dashed var(--color-4);
+        }
+
+        .content-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border: 2px dashed var(--color-4);
+        }
+
+        .site-title h1 {
+            color: var(--color-1);
+            font-size: 2.5rem;
+            font-weight: normal;
+            margin-bottom: 0.2rem;
+        }
+
+        .site-title p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background-color: var(--color-1);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links li a {
+            color: white;
+            text-decoration: none;
+            display: block;
+            padding: 1rem 1.2rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .nav-links li a:hover {
+            background-color: var(--color-3);
+        }
+
+        /* Main Layout: Content + Sidebar */
+        .layout-wrapper {
+            max-width: 1200px;
+            margin: 2.5rem auto;
+            padding: 0 2rem;
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+
+        .main-content {
+            flex: 3;
+            background: var(--bg-content);
+            padding: 2.5rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        /* Single Page Section Styling */
+        section {
+            /* This ensures the sticky header doesn't cover the section title when scrolling */
+            scroll-margin-top: 80px; 
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        section:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .sidebar {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: sticky;
+            top: 80px; /* Keeps sidebar visible while scrolling main content */
+        }
+
+        /* Typography & Elements inside Main Content */
+        h2 {
+            color: var(--color-1);
+            border-bottom: 2px solid var(--color-5);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: var(--color-2);
+            margin: 1.5rem 0 0.5rem 0;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul.styled-list {
+            list-style-type: square;
+            padding-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        ul.styled-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Sidebar Widgets */
+        .widget {
+            background: var(--bg-content);
+            padding: 1.5rem;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--color-2);
+        }
+
+        .widget h4 {
+            color: var(--color-1);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .widget ul {
+            list-style: none;
+        }
+
+        .widget ul li {
+            margin-bottom: 0.8rem;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 0.8rem;
+            font-size: 0.9rem;
+        }
+
+        .widget ul li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .widget a {
+            color: var(--color-2);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .widget a:hover {
+            color: var(--color-1);
+            text-decoration: underline;
+        }
+
+        /* CV Timeline Styling */
+        .resume-item {
+            margin-bottom: 1.5rem;
+        }
+        .resume-date {
+            font-weight: bold;
+            color: var(--color-3);
+            font-size: 0.9rem;
+            display: block;
+        }
+        .resume-title {
+            font-weight: 600;
+            color: var(--text-main);
+            margin-top: 0.2rem;
+        }
+
+        /* Forms */
+        input, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        button {
+            background-color: var(--color-2);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        button:hover {
+            background-color: var(--color-1);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-main);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .layout-wrapper {
+                flex-direction: column;
+            }
+            .sidebar {
+                width: 100%;
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="YOUR_LOGO_IMAGE_HERE.png" alt="Logo Placeholder" class="logo-placeholder">
+            
+            <div class="site-title">
+                <h1>Vikas Bagde</h1>
+                <p>PhD Candidate • Urban Governance & Mobility Planning</p>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#cv">CV</a></li>
+                <li><a href="#research">Research & Projects</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#teaching">Teaching</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="layout-wrapper">
+        
+        <main class="main-content">
+            
+            <section id="home">
+                <h2>Welcome</h2>
+                
+                <img src="YOUR_PROFILE_PHOTO_HERE.jpg" alt="Vikas Bagde Profile Picture" class="profile-photo">
+
+                <p>I am a PhD Candidate at the <strong>University of Amsterdam (UvA)</strong> in the Department of Geography, Planning and International Development Studies (GPIO). My research explores the dynamic landscapes of socio-technical transitions, focusing on the influence of narratives in bottom-up mobility innovations.</p>
+                <p>With a background spanning mechanical engineering, ecology, and sustainable development from the Tata Institute of Social Sciences (TISS), my work is deeply rooted in organizing for societal grand challenges in Global South contexts, spatial planning, and inclusive development.</p>
+            </section>
+
+            <section id="cv">
+                <h2>Curriculum Vitae</h2>
+                <p>For full details on my academic trajectory, <a href="YOUR_CV_FILE.pdf" target="_blank" style="color:var(--color-2);">download my full CV as a PDF</a>.</p>
+                
+                <h3>Education</h3>
+                <div class="resume-item">
+                    <span class="resume-date">January 2022 – Present</span>
+                    <div class="resume-title">PhD Candidate, GPIO, University of Amsterdam</div>
+                    <p>Dissertation: "Understanding the Influence of Narratives on the Process of Bottom-Up Mobility Innovations." Supervisors: Prof. Marco te Brömmelstroet & Dr. Hebe Verrest.</p>
+                </div>
+                <div class="resume-item">
+                    <span class="resume-date">2017 – 2019</span>
+                    <div class="resume-title">Master of Arts in Ecology, Environment & Sustainable Development</div>
+                    <p>Tata Institute of Social Sciences (TISS), Guwahati, India. Thesis: Assessing Integration of Electric Vehicles and Its Environmental and Social Impact in Assam.</p>
+                </div>
+
+                <h3>Academic Service & Leadership</h3>
+                <ul class="styled-list">
+                    <li><strong>PhD Representative (2022-2024):</strong> Elected liaison between PhD candidates and departmental leadership at UvA.</li>
+                    <li><strong>Founder:</strong> Writing Club for Researchers, providing structured academic writing support.</li>
+                    <li><strong>Co-founder:</strong> Intuition Study Circle, TISS Guwahati.</li>
+                </ul>
+            </section>
+
+            <section id="research">
+                <h2>Research & Projects</h2>
+                
+                <img src="YOUR_RESEARCH_PHOTO_HERE.jpg" alt="Fieldwork or Project Image" class="content-image">
+
+                <p>My research interests lie at the intersection of urban planning, sustainable mobility, and climate vulnerability. Below are selected past and ongoing projects.</p>
+                
+                <h3>Ongoing Research</h3>
+                <p><strong>Narratives in Bottom-Up Innovation:</strong> Exploring how grassroots initiatives legitimize and organize mobility solutions against dominant top-down regimes.</p>
+
+                <h3>Past Projects</h3>
+                <div class="resume-item">
+                    <span class="resume-date">2019 – 2020</span>
+                    <div class="resume-title">Project Associate, Indian Institute of Technology (IIT) Mandi</div>
+                    <p>Project: "Capacity Building on Climate Change Vulnerability and Risk Assessment in the States of India." Led capacity-building workshops training over 100 government officials.</p>
+                </div>
+                
+                <div class="resume-item">
+                    <span class="resume-date">2021</span>
+                    <div class="resume-title">Monitoring & Evaluation Consultant</div>
+                    <p>Conducted M&E of Corporate Social Responsibility (CSR) projects, utilizing programme evaluation frameworks for corporate clients.</p>
+                </div>
+            </section>
+
+            <section id="publications">
+                <h2>Publications & Presentations</h2>
+                
+                <h3>Working Papers</h3>
+                <ul class="styled-list">
+                    <li>Bagde, V. (In Preparation). Position paper on Electric 3 wheelers in South Asia.</li>
+                </ul>
+
+                <h3>Conference Presentations</h3>
+                <ul class="styled-list">
+                    <li>Bagde, V. (2025, October). <em>Contesting regime: Bottom-up mobility innovations.</em> Paper presented at the T2M Annual Conference, Eindhoven University of Technology.</li>
+                    <li>Bagde, V. (2024, September). <em>Reimagining innovation paradigm: Potential of Bottom-up approaches in sustainable mobility.</em> Tensions of Europe Conference, Germany.</li>
+                </ul>
+
+                <h3>Public Engagement</h3>
+                <ul class="styled-list">
+                    <li>Bagde, V. (2017). <a href="http://roundtableindia.co.in/index.php?option=com_content&view=article&id=8947" target="_blank" style="color:var(--color-2);">Why am I celebrating Diwali and Dusshera?</a> Roundtable India.</li>
+                    <li>Bagde, V. (2016). <a href="http://roundtableindia.co.in/index.php?option=com_content&view=article&id=8810" target="_blank" style="color:var(--color-2);">Media: The oppressor's tool to divide and rule.</a> Roundtable India.</li>
+                </ul>
+            </section>
+
+            <section id="teaching">
+                <h2>Teaching</h2>
+                <p>I have designed and delivered guest lectures engaging students on urban studies, international development, and accessible pedagogical approaches.</p>
+                
+                <div class="resume-item">
+                    <span class="resume-date">October 2024</span>
+                    <div class="resume-title">Guest Lecturer — "Introduction to Spatial Planning" (UvA)</div>
+                    <p>Engaged bachelor students on the department’s research areas, methodological approaches, and social applications.</p>
+                </div>
+
+                <div class="resume-item">
+                    <span class="resume-date">2015 – 2017</span>
+                    <div class="resume-title">Tutor & Mentor — Nalanda Academy and Labs</div>
+                    <p>Taught and mentored marginalized students preparing for higher education; developed accessible pedagogical approaches for first-generation learners.</p>
+                </div>
+            </section>
+
+            <section id="blog">
+                <h2>News & Blog</h2>
+                <p>Here I share reflections on field research, academic reading, and observations on sustainable mobility.</p>
+                
+                <div style="border-bottom: 1px solid var(--border-color); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
+                    <span class="resume-date">June 2024</span>
+                    <h3 style="margin-top: 0;">Organizing the GPIO Annual Research Day</h3>
+                    <p>A brief reflection on facilitating scholarly exchange among PhD candidates and faculty at the University of Amsterdam...</p>
+                    <a href="#blog" style="color:var(--color-2); font-weight:600;">Read More →</a>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Information</h2>
+                <p><strong>Postal Address:</strong><br>
+                University of Amsterdam (UvA)<br>
+                Department of Geography, Planning and International Development (GPIO)<br>
+                Amsterdam, The Netherlands</p>
+                
+                <br>
+                <p>For collaborations, research inquiries, or speaking engagements, please send a message below.</p>
+                <form style="margin-top: 1.5rem;" onsubmit="event.preventDefault(); alert('Demo form submission successful!');">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <textarea rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+            </section>
+
+        </main>
+
+        <aside class="sidebar">
+            
+            <div class="widget">
+                <h4>Connect</h4>
+                <ul>
+                    <li><a href="https://www.linkedin.com/in/vikas-bhau-6b0664170/" target="_blank">LinkedIn Profile</a></li>
+                    <li><a href="PUT_YOUR_UVA_LINK_HERE" target="_blank">UvA Academic Profile</a></li>
+                    <li><a href="PUT_YOUR_SCHOLAR_LINK_HERE" target="_blank">Google Scholar</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h4>Latest News</h4>
+                <ul>
+                    <li><a href="#publications">Upcoming presentation at T2M Annual Conference (Oct 2025)</a></li>
+                    <li><a href="#publications">New working paper on Electric 3 wheelers</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h4>Research Areas</h4>
+                <ul>
+                    <li>Socio-technical transitions</li>
+                    <li>Bottom-up innovation</li>
+                    <li>Urban and transport planning</li>
+                    <li>Global South contexts</li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Vikas Bagde. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
