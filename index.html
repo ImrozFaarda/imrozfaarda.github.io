@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vikas Bagde | Urban Planning & Mobility Researcher</title>
+    <title>Vikas Bagde</title>
     <style>
         /* Base Variables & Teal Color Palette */
         :root {
@@ -50,31 +50,19 @@
             padding: 0 2rem;
             display: flex;
             align-items: center;
-            gap: 2rem;
+            justify-content: space-between;
         }
 
         .logo-placeholder {
             max-height: 100px;
             width: auto;
-            border: 2px dashed var(--color-4);
+            border: 2px dashed var(--color-4); /* Remove this border once your real logo loads */
             padding: 5px;
         }
 
-        .profile-photo {
-            width: 100%;
-            max-width: 300px;
-            height: auto;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            border: 2px dashed var(--color-4);
-        }
-
-        .content-image {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            margin: 1rem 0;
-            border: 2px dashed var(--color-4);
+        .site-title {
+            text-align: center;
+            flex-grow: 1;
         }
 
         .site-title h1 {
@@ -183,7 +171,43 @@
         }
 
         p {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem; /* Clean paragraph spacing */
+        }
+
+        /* Introduction Section Specifics (MS Word Style Wrapping) */
+        .profile-photo {
+            width: 300px;
+            height: auto;
+            border-radius: 8px;
+            border: 2px dashed var(--color-4); /* Remove once you verify image loads */
+        }
+
+        .desktop-img {
+            float: right; /* Wraps the text around the image */
+            margin: 0 0 1.5rem 2rem; /* Pushes text away from the image edges */
+        }
+
+        .mobile-img {
+            display: none; /* Hides the secondary image on desktop */
+        }
+
+        .intro-text {
+            text-align: justify; 
+        }
+
+        /* Clearfix to ensure the section container wraps around the floated image */
+        .intro-text::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .content-image {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 1rem 0;
+            border: 2px dashed var(--color-4);
         }
 
         ul.styled-list {
@@ -338,8 +362,21 @@
             .sidebar { width: 100%; position: static; }
             .nav-links { flex-direction: column; text-align: center; gap: 0; }
             .nav-links li a { border-bottom: 1px solid rgba(255,255,255,0.1); }
-            .header-container { flex-direction: column; text-align: center; }
-            .site-title h1 { font-size: 2rem; }
+            
+            /* Updates for Header on Mobile */
+            .header-container { flex-direction: row; justify-content: center; text-align: center; gap: 10px; }
+            .site-title h1 { font-size: 1.8rem; }
+            .logo-placeholder { max-height: 60px; }
+            
+            /* Mobile Image Layout - Text First, Image Second */
+            .desktop-img { display: none; } /* Hide the floated desktop image */
+            .mobile-img { 
+                display: block; /* Show the bottom image */
+                margin: 2rem auto 1rem auto; 
+                width: 100%; 
+                max-width: 300px; 
+                float: none;
+            }
         }
     </style>
 </head>
@@ -347,11 +384,11 @@
 
     <header>
         <div class="header-container">
-            <img src="YOUR_LOGO_FILE.png" alt="Vikas Bagde Logo" class="logo-placeholder">
+            <img src="Vikas_Logo.svg" alt="Vikas Bagde Logo Left" class="logo-placeholder">
             <div class="site-title">
-                <h1>Vikas Bagde</h1>
-                <p>PhD Candidate • Urban Governance & Mobility Planning</p>
+                <h1>विकास भाऊ Vikas Bagde</h1>
             </div>
+            <img src="Vikas_Logo.svg" alt="Vikas Bagde Logo Right" class="logo-placeholder">
         </div>
     </header>
 
@@ -359,6 +396,7 @@
         <div class="nav-container">
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
+                <li><a href="#Blog">Blog</a></li>
                 <li><a href="#cv">CV & Education</a></li>
                 <li><a href="#research">Experience</a></li>
                 <li><a href="#media">Media & Public Engagement</a></li>
@@ -373,10 +411,40 @@
         <main class="main-content">
             
             <section id="home">
-                <h2>Welcome</h2>
-                <img src="YOUR_PROFILE_PHOTO_HERE.jpg" alt="Vikas Bagde Profile Picture" class="profile-photo">
-                <p>I am a PhD Candidate at the <strong>University of Amsterdam (UvA)</strong> in the Department of Geography, Planning and International Development Studies (GPIO). My research explores the dynamic landscapes of socio-technical transitions, focusing on the influence of narratives in bottom-up mobility innovations.</p>
-                <p>With a background spanning mechanical engineering, ecology, and sustainable development from the Tata Institute of Social Sciences (TISS), my work is deeply rooted in organizing for societal grand challenges in Global South contexts, spatial planning, and inclusive development.</p>
+                <h2>Who I am</h2>
+                <div class="intro-text">
+                    <img src="Vikas_profile_pic.jpg" alt="Vikas Bagde Profile Picture" class="profile-photo desktop-img">
+                    
+                    <p>If there is one thread that connects my work as an engineer, designer, storyteller, and urban mobility researcher, it is the fundamental refusal to accept dominant narratives without asking two critical questions: Who wrote this? and Whose interests does it serve? I am Vikas Bagde. My worldview, both personal and professional, is deeply anchored in Ambedkarite and Buddhist philosophies of humanity, equity, and compassion. For too long, the stories, histories, and physical spaces of the marginalized have been defined by those who hold power. Whether we are talking about cultural festivals, the media, or urban infrastructure, the ruling classes have historically used their monopolies to safeguard their own interests. They often manufacture narratives designed to make the oppressed live in guilt—wasting our energy on self-doubt so we do not have the time to anticipate their next move.</p>
+                    
+                    <p>I have zero tolerance for that kind of systemic bullshitting. I believe in calling it out, keeping it simple, and focusing on real-life impacts rather than hiding behind elite, academic jargon. My work is about reclaiming our spaces, our stories, and our solutions.</p>
+                    
+                    <p>Through my writings—such as my essays for Round Table India—and my community work, I have consistently challenged the dichotomy between the oppressor's narrative and the lived realities of the Bahujan masses. I often ask: Why can't I find my history easily in written form? Why do we have to rely on someone else's memory? Why are the indigenous, frugal traditions of our communities erased from textbooks? Because of this historical erasure, I rely heavily on storytelling and emergent media to bridge the gap. I believe that education and technology must be used for problem conceptualization and community participation from the ground up. The marginalized do not need to be "saved" or lectured to; they need the space to assert their own lost voices. It is our responsibility to unlearn the illogical rules set by a man-centric, caste-driven society and to rebuild a framework rooted in actual justice.</p>
+                    
+                    <p>This exact same critical lens drives my academic research. I hold a degree in Mechanical Engineering and a Master’s in Ecology, Environment, and Sustainable Development, and I am currently a PhD candidate in the Urban Planning group at the University of Amsterdam.</p>
+
+                    <p>In the global discourse of urban planning, mobility is almost exclusively framed as a technical problem. The "experts" want to push techno-centric, top-down solutions—smart cities, autonomous vehicles, and hyper-automated infrastructure—that are driven by profit and completely detached from the everyday realities of the people who actually navigate these cities.</p>
+
+                    <p>I challenge this framing. Mobility is not just engineering; it is profoundly human, social, and political. It is shaped by power dynamics and place.</p>
+
+                    <p>My doctoral research examines the evolution and adoption of Electric Rickshaws in India. This is a street-born, bottom-up innovation that has quietly but radically transformed last-mile connectivity and public transport, entirely without the orchestration of corporate R&D or conventional planners. These low-emission vehicles represent a frugal, community-driven solution that provides an efficient alternative for the masses.</p>
+
+                    <p>By analyzing the narratives surrounding innovations like the e-rickshaw, I aim to expose how global policy agendas and subsidy regimes often prioritize elite, high-tech fantasies while marginalizing the indigenous, grassroots solutions that are actually doing the heavy lifting in the Global South.</p>
+
+                    <p>I am a lifelong learner who learns from people, incidences, and the spaces in between. I didn't come to academia just to write papers that gather dust in university libraries. I came here to understand the mechanics of power and to use that knowledge to dismantle the complex challenges created by greedy and oppressive systems.</p>
+
+                    <p>Whether I am mentoring students through initiatives like Nalanda, speaking on podcasts about sustainable mobility, or breaking down the politics of media and assertion, my goal remains the same: to democratize knowledge and innovation. I want to use my skills to help make this world a more livable, equitable space for everyone.</p>
+
+                    <p>If you are interested in unlearning the dominant narratives and exploring how technology, policy, and society can actually serve the people from the bottom up, we will have a lot to talk about.</p>
+
+                    <img src="Vikas_profile_pic.jpg" alt="Vikas Bagde Profile Picture" class="profile-photo mobile-img">
+                </div>
+            </section>
+
+            <section id="Blog">
+                <h2>Blog</h2>
+                <video src="Kalu_playing.mp4" class="content-image" controls muted autoplay loop></video>
+                <p><strong>Great things demands patience....😜</strong></p>
             </section>
 
             <section id="cv">
@@ -511,10 +579,11 @@
             <div class="widget">
                 <h4>Connect</h4>
                 <ul>
-                    <li><a href="mailto:vikasbagde1@gmail.com">vikasbagde1@gmail.com</a></li>
-                    <li><a href="tel:+31626910778">+31 626 910 778</a></li>
+                    <li><a href="mailto:vikasbagde1@gmail.com">Personal: vikasbagde1@gmail.com</a></li> 
+                    <li><a href="mailto:v.bagde@uva.nl">UvA: v.bagde@uva.nl</a></li>
                     <li><a href="https://www.linkedin.com/in/vikas-bhau-6b0664170/" target="_blank">LinkedIn Profile</a></li>
                     <li><a href="https://www.uva.nl/en/profile/b/a/v.bagde/v.bagde.html" target="_blank">UvA Academic Profile</a></li>
+                    <li><a href="https://amsterdamschoolofplanning.eu/vikas-bagde/" target="_blank">Amsterdam School of Planning</a></li>
                 </ul>
             </div>
             
@@ -553,7 +622,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Vikas Bagde. All Rights Reserved.</p>
+        <p>© 2026 Vikas Bagde. All Rights Reserved.</p>
     </footer>
 
     <script>
