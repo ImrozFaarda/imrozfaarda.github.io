@@ -82,7 +82,7 @@
         nav {
             background-color: var(--color-1);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
+            position: static;
             top: 0;
             z-index: 1000;
         }
@@ -360,6 +360,9 @@
             .sidebar { width: 100%; position: static; }
             .nav-links { flex-direction: column; text-align: center; gap: 0; }
             .nav-links li a { border-bottom: 1px solid rgba(255,255,255,0.1); }
+            nav {
+                position: static; 
+            }
             
             /* Updates for Header on Mobile */
             .header-container { flex-direction: row; justify-content: center; text-align: center; gap: 10px; }
